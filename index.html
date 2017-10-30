@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Управление подсетями телефонии</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css" media="all">
+	<link rel="stylesheet" href="css/bootstrap.css" media="all">
+	<style media="all,print,screen"></style>
+
+	<!--[if it IE]>-->
+          <script type="text/javascript" src="js/html5shiv.js"></script>
+    <!--<![endif]-->
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+
+<body>
+<div class="container-fluid ">
+	<div class="row-fluid">
+		<div class="row col-xs-12 col-sm-6 col-md-4 col-lg-3"">
+			<form class="form-control">
+				<fieldset>
+					<legend>Настройка сетевого интерфейса</legend>
+
+					<div class="form-group">
+						<label for="choose_int">Выберите сетевой интерфейс:</label>
+						<select name="choose_int" class="form-control">
+							<option value="enp4s0f0" selected="selected">enp4s0f0</option>
+							<option value="enp5s0f0">enp5s0f0</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="vlan_id">Укажите номер vlan:</label>
+						<input class="form-control" type="text" name="vlan_id" min="2" maxlength="4" pattern="[0-9]{4}" required size="5" placeholder="введите vlan number">
+					</div>
+
+					<div class="form-group">
+						<button type="button" class="btn btn-primary btn-block">Создать vlan</button>
+					</div>
+				</fieldset>			
+			</form>
+
+			<form>
+				<fieldset>
+					<legend>Настройки подсети</legend>
+
+					<div class="form-group">
+						<label for=""></label>
+
+
+				</fieldset>
+			</form>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>
