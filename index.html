@@ -23,13 +23,13 @@
 <div class="container-fluid ">
 	<div class="row-fluid wrapper">
 		<div class="row col-lg-3 col-md-4 col-sm-12 col-xs-12 form_block">
-			<form class="form-control int" action="#" method="GET" name="int_add" role="form">
+			<form class="form-control int" action="#" method="GET" name="int_add">
 				<fieldset>
 					<legend>Настройка сетевого интерфейса</legend>
 
 					<div class="form-group">
 						<label for="choose_int">Выберите физический интерфейс:</label>
-						<select name="choose_int" class="form-control">
+						<select id="choose_int" class="form-control">
 							<option value="enp4s0f0" selected="selected">enp4s0f0</option>
 							<option value="enp5s0f0">enp5s0f0</option>
 						</select>
@@ -37,17 +37,17 @@
 
 					<div class="form-group">
 						<label for="vlan_id">Номер vlan:</label>
-						<input class="form-control" type="text" name="vlan_id" min="2" maxlength="4" pattern="[0-9]{4}" required size="5" placeholder="введите vlan number">
+						<input class="form-control" type="text" id="vlan_id" maxlength="4" pattern="[0-9]{4}" required size="5" placeholder="введите vlan number">
 					</div>
 
 					<div class="form-group">
 						<label for="ip">Ip адрес интерфейса:</label>
-						<input class="form-control" type="text" name="ip" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите ip адрес интерфейса">
+						<input class="form-control" type="text" id="ip" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите ip адрес интерфейса">
 					</div>
 
 					<div class="form-group">
 						<label for="prefix">Префикс:</label>
-						<input class="form-control" type="text" name="prefix" maxlength="2" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="2" placeholder="введите префикс подсети">
+						<input class="form-control" type="text" id="prefix" maxlength="2" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="2" placeholder="введите префикс подсети">
 					</div>
 
 					<div class="form-group">
@@ -61,9 +61,10 @@
 					<legend>Настройки конфига подсети</legend>
 
 					<div class="form-group">
-						<label for="interface" >Выберите интерфейс:</label>
-						<select name="choose_int" class="form-control" class="form-control">
-							<option value="enp4s0f0.743" selected="selected">enp4s0f0.743</option>
+						<label for="choose_interface">Выберите интерфейс:</label>
+						<select id="choose_interface" class="form-control" required="">
+							<option value="" selected="selected">---</option>
+							<option value="enp4s0f0.743">enp4s0f0.743</option>
 							<option value="enp4s0f0.744">enp4s0f0.744</option>
 							<option value="enp4s0f0.745">enp4s0f0.745</option>							
 						</select>
@@ -71,37 +72,37 @@
 
 					<div class="form-group">
 						<label for="subnet">Адрес подсети:</label>
-						<input class="form-control" type="text" name="subnet" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите адрес подсети">
+						<input class="form-control" type="text" id="subnet" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите адрес подсети">
 					</div>
 
 					<div class="form-group">
-						<label for="prefix">Маска подсети:</label>
-						<input class="form-control" type="text" name="prefix" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите маску подсети">
+						<label for="netmask">Маска подсети:</label>
+						<input class="form-control" type="text" id="netmask" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите маску подсети">
 					</div>
 
 					<div class="form-group">
 						<label for="gw">Шлюз по умолчанию:</label>
-						<input class="form-control" type="text" name="gw" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите шлюз по умолчанию">
+						<input class="form-control" type="text" id="gw" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите шлюз по умолчанию">
 					</div>
 
 					<div class="form-group">
 						<label for="broadcast">Укажите broadcast:</label>
-						<input class="form-control" type="text" name="broadcast" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="широковещательный адрес">
+						<input class="form-control" type="text" id="broadcast" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="широковещательный адрес">
 					</div>
 
 					<div class="form-group">
 						<label for="ip_start">Начальный адрес:</label>
-						<input class="form-control" type="text" name="ip_start" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="начальный адрес диапазона">
+						<input class="form-control" type="text" id="ip_start" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="начальный адрес диапазона">
 					</div>
 
 					<div class="form-group">
 						<label for="ip_end">Конечный адрес:</label>
-						<input class="form-control" type="text" name="ip_end" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="конечный адрес диапазона">
+						<input class="form-control" type="text" id="ip_end" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="конечный адрес диапазона">
 					</div>
 
 					<div class="form-group">
 						<label for="failover_peer">failover peer:</label>
-						<input class="form-control" type="text" name="failover_peer"  required size="30" value="nr-dhcpd-failover">
+						<input class="form-control" type="text" id="failover_peer"  required size="30" value="nr-dhcpd-failover">
 					</div>
 
 					<div class="form-group">
@@ -112,13 +113,15 @@
 		</div>
 
 		<div class="row col-lg-9 col-md-8 col-sm-12 col-xs-12 wrapper">
-			<caption>Сконфигурированные сети и интерфейсы</caption>
+			<p>Сконфигурированные сети и интерфейсы</p>
 			<table class="table table-hover table-responsive">				
-				<thead class="text-nowrap">					
-					<th>Интерфейс</th>
-					<th>Vlan</th>
-					<th>ip адрес</th>
-					<th>Префикс</th>
+				<thead class="text-nowrap">	
+					<tr>				
+						<th>Интерфейс</th>
+						<th>Vlan</th>
+						<th>ip адрес</th>
+						<th>Префикс</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -132,17 +135,19 @@
 			</table>
 
 
-			<caption>Доступные подсети</caption>
+			<p>Доступные подсети</p>
 			<table class="table table-hover table-responsive">				
-				<thead class="text-nowrap">					
-					<th>Интерфейс</th>
-					<th>Subnet</th>
-					<th>Netmask</th>
-					<th>Default Gateway</th>
-					<th>Broadcast</th>
-					<th>Start ip</th>
-					<th>End ip</th>
-					<th>Failover peer</th>
+				<thead class="text-nowrap">		
+					<tr>			
+						<th>Интерфейс</th>
+						<th>Subnet</th>
+						<th>Netmask</th>
+						<th>Default Gateway</th>
+						<th>Broadcast</th>
+						<th>Start ip</th>
+						<th>End ip</th>
+						<th>Failover peer</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
