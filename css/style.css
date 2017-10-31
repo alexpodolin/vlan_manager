@@ -1,0 +1,15 @@
+button[type="button"]:hover {
+	cursor: pointer;
+}
+.table-hover:hover {
+	cursor: pointer;
+}
+.wrapper {
+	margin: 3% 0 0 0;
+}
+.form_block {
+	float: left;
+}
+.config {
+	margin: 10% 0 0 0;
+}
