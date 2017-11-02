@@ -10,6 +10,10 @@ button[type="button"]:hover {
 .form_block {
 	float: left;
 }
-.config {
+/*.config {
 	margin: 10% 0 0 0;
+}*/
+.config small {
+	display: block;
+	margin: 0% 0 5% 0;
 }
