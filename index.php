@@ -1,6 +1,4 @@
 <?
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 // В первую очередь принудительно подключим файл 
 // в котором соединимся с БД
 require_once("{$_SERVER[DOCUMENT_ROOT]}/func/db_conn.php");
@@ -75,14 +73,14 @@ foreach ($file_name as $item) {
 				</fieldset>			
 			</form> -->
 
-			<form class="form-control config">
+			<form class="form-control config" method="POST" autocomplete="on">
 				<fieldset>
 					<legend>Настройки конфига подсети</legend>
 					<small>* если в списке не отображаются нужные интерфейсы, то необходимо их создать на обоих серверах</small>
 
 					<div class="form-group">
 						<label for="choose_interface">Выберите интерфейс:</label>
-						<select id="choose_interface" class="form-control" required="">
+						<select id="choose_interface" name="choose_interface" class="form-control" required>
 							<option value="">---</option>
 							<?=$options?>										
 						</select>
@@ -90,41 +88,41 @@ foreach ($file_name as $item) {
 
 					<div class="form-group">
 						<label for="subnet">Адрес подсети:</label>
-						<input class="form-control" type="text" id="subnet" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите адрес подсети">
+						<input class="form-control" type="text" id="subnet" name="subnet" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите адрес подсети">
 					</div>
 
 					<div class="form-group">
 						<label for="netmask">Маска подсети:</label>
-						<input class="form-control" type="text" id="netmask" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите маску подсети">
+						<input class="form-control" type="text" id="netmask" name="netmask" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите маску подсети">
 					</div>
 
 					<div class="form-group">
 						<label for="gw">Шлюз по умолчанию:</label>
-						<input class="form-control" type="text" id="gw" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите шлюз по умолчанию">
+						<input class="form-control" type="text" id="gw" name="gw" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="введите шлюз по умолчанию">
 					</div>
 
 					<div class="form-group">
 						<label for="broadcast">Укажите broadcast:</label>
-						<input class="form-control" type="text" id="broadcast" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="широковещательный адрес">
+						<input class="form-control" type="text" id="broadcast" name="broadcast" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="широковещательный адрес">
 					</div>
 
 					<div class="form-group">
 						<label for="ip_start">Начальный адрес:</label>
-						<input class="form-control" type="text" id="ip_start" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="начальный адрес диапазона">
+						<input class="form-control" type="text" id="ip_start" name="ip_start" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="начальный адрес диапазона">
 					</div>
 
 					<div class="form-group">
 						<label for="ip_end">Конечный адрес:</label>
-						<input class="form-control" type="text" id="ip_end" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="конечный адрес диапазона">
+						<input class="form-control" type="text" id="ip_end" name="ip_end" maxlength="15" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" required size="15" placeholder="конечный адрес диапазона">
 					</div>
 
 					<div class="form-group">
 						<label for="failover_peer">failover peer:</label>
-						<input class="form-control" type="text" id="failover_peer"  required size="30" value="nr-dhcpd-failover">
+						<input class="form-control" type="text" id="failover_peer" name="failover_peer"  required size="30" value="nr-dhcpd-failover">
 					</div>
 
 					<div class="form-group">
-						<button type="button" class="btn btn-primary btn-block" name="int__add_config">Сконфигурировать подсеть</button>
+						<button type="submit" class="btn btn-primary btn-block" name="int__add_config">Сконфигурировать подсеть</button>
 					</div>
 				</fieldset>
 			</form>

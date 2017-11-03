@@ -1,4 +1,4 @@
-button[type="button"]:hover {
+button:hover {
 	cursor: pointer;
 }
 .table-hover:hover {

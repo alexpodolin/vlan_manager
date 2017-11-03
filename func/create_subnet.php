@@ -3,8 +3,7 @@
 function get_subinterfaces() {
 
 	// Получим список интерфейсов, при соединении по ssh
-	$pty = true;
-	
+	$pty = true;	
 	$ssh_conn = ssh2_connect('192.168.156.91', 22);
 
 	if  (ssh2_auth_password($ssh_conn, 'manager', '7Sh5sUhu')) {
@@ -33,8 +32,24 @@ function get_subinterfaces() {
 }
 
 // Обработка формы создания подсети
-function create_subnet() {
+function create_subnet($conn) {
+	$sub_interface = $_POST['choose_interface'];
+	$subnet = $_POST['subnet'];
+	$netmask = $_POST['netmask'];
+	$gw = $_POST['gw'];
+	$broadcast = $_POST['broadcast'];
+	$ip_start = $_POST['ip_start'];
+	$ip_end = $_POST['ip_end'];
+	$failover_peer = $_POST['failover_peer'];
 
+	if (isset($sub_interface, $subnet, $netmask, $gw, $broadcast, $ip_start, $ip_end, $failover_peer)) {
+		
+		$sql_ins_subnet = "INSERT INTO net_ipv4 (interface, subnet_ipv4, netmask, default_gw, broadcast, ip_range_start, ip_range_end, failover_peer) VALUES ('$sub_interface', INET_ATON('$subnet'), INET_ATON('$netmask'), INET_ATON('$gw'), INET_ATON('$broadcast'), INET_ATON('$ip_start'), INET_ATON('$ip_end'), '$failover_peer')";
+
+		$res = $conn->exec($sql_ins_subnet);
+
+		header("Location: /");
+	}
 }
 
 $options = get_subinterfaces();
