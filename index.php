@@ -29,11 +29,15 @@ foreach ($file_name as $item) {
 
 	<style media="all,print,screen"></style>
 
-	<!--[if it IE]>-->
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+	<!--[if it IE]>
           <script type="text/javascript" src="js/html5shiv.js"></script>
-    <!--<![endif]-->
+    <![endif]-->
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
 </head>
 
 <body>
@@ -76,7 +80,7 @@ foreach ($file_name as $item) {
 			<form class="form-control config" method="POST" autocomplete="on">
 				<fieldset>
 					<legend>Настройки конфига подсети</legend>
-					<small>* если в списке не отображаются нужные интерфейсы, то необходимо их создать на обоих серверах</small>
+					<small>* если в списке не отображаются нужные интерфейсы, то необходимо их создать на всех серверах</small>
 
 					<div class="form-group">
 						<label for="choose_interface">Выберите интерфейс:</label>
@@ -152,7 +156,7 @@ foreach ($file_name as $item) {
 
 
 			<p>Доступные подсети</p>
-			<table class="table table-hover table-responsive">		
+			<table class="table table-responsive" id="subnets_content">		
 				<thead class="text-nowrap">		
 					<tr>			
 						<th>Interface</th>
@@ -163,6 +167,7 @@ foreach ($file_name as $item) {
 						<th>Start ip</th>
 						<th>End ip</th>
 						<th>Failover peer</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -174,7 +179,27 @@ foreach ($file_name as $item) {
 			</table>
 		</div>
 
-	</div>
+		<div id="remove__subnet" class="modal remove__subnet" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Удаление подсети</h4>
+						<button type="button" class="close" onclick="close_modal_delete();">×</button>
+					</div>
+
+					<div class="modal-body">Удалить подсеть ?</div>
+					
+					<div class="modal-footer">			
+						<button type="button" class="btn btn-default" onclick="remove_row();">Да</button>		
+						<button type="button" class="btn btn-danger" onclick="close_modal_delete();">Нет</button>						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="progress__spin"></div>
+
+	</div>	
 </div>
 </body>
 </html>
