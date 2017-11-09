@@ -80,7 +80,7 @@ foreach ($file_name as $item) {
 			<form class="form-control config" method="POST" autocomplete="on">
 				<fieldset>
 					<legend>Настройки конфига подсети</legend>
-					<small>* если в списке не отображаются нужные интерфейсы, то необходимо их создать на всех серверах</small>
+					<small>* если в списке не отображаются нужный vlan, то необходимо его создать на всех серверах</small>
 
 					<div class="form-group">
 						<label for="choose_interface">Выберите интерфейс:</label>
