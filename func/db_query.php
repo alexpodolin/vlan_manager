@@ -2,7 +2,7 @@
 // Извлечем из БД Информацию о доступных подсетях
 function select_subnet_param($conn) {
 
-	$select_subnets = 'SELECT id, interface, INET_NTOA(subnet_ipv4) AS subnet_ipv4, INET_NTOA(netmask) AS netmask, INET_NTOA(default_gw) AS default_gw, INET_NTOA(broadcast) AS broadcast, INET_NTOA(ip_range_start) AS ip_range_start, INET_NTOA(ip_range_end) AS ip_range_end, failover_peer FROM net_ipv4';
+	$select_subnets = 'SELECT id, interface, INET_NTOA(subnet_ipv4) AS subnet_ipv4, INET_NTOA(netmask) AS netmask, INET_NTOA(default_gw) AS default_gw, INET_NTOA(broadcast) AS broadcast, INET_NTOA(ip_range_start) AS ip_range_start, INET_NTOA(ip_range_end) AS ip_range_end, failover_peer, opt_242 FROM net_ipv4';
 
 	$res = $conn->query($select_subnets);
 	
@@ -17,6 +17,7 @@ function select_subnet_param($conn) {
 						<td>{$row['ip_range_start']}</td>
 						<td>{$row['ip_range_end']}</td>
 						<td>{$row['failover_peer']}</td>
+						<td>{$row['opt_242']}</td>
 						<td>
 							<a href='#' class='action__icon btn' title='редактировать'>
 								<img src='/images/glyphicons-31-pencil.png' alt='редактировать'>

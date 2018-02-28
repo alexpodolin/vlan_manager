@@ -126,6 +126,12 @@ foreach ($file_name as $item) {
 					</div>
 
 					<div class="form-group">
+						<label for="opt_242">опция 242:</label>
+						<small>* укажите параметр L2QVLAN</small>
+						<input class="form-control" type="text" id="opt_242" name="opt_242"  required size="150" value=" MCIPADD=10.16.233.30,MCPORT=1719,TLSSRVR=10.16.233.23,HTTPSRVR=10.16.233.23,L2Q=1,L2QVLAN=XXX,VLANTEST=0">
+					</div>
+
+					<div class="form-group">
 						<button type="submit" class="btn btn-primary btn-block" name="int__add_config">Сконфигурировать подсеть</button>
 					</div>
 				</fieldset>
@@ -167,6 +173,7 @@ foreach ($file_name as $item) {
 						<th>Start ip</th>
 						<th>End ip</th>
 						<th>Failover peer</th>
+						<th>Option 242</th>
 						<th>Actions</th>
 					</tr>
 				</thead>

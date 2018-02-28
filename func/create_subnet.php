@@ -41,10 +41,11 @@ function create_subnet($conn) {
 	$ip_start = $_POST['ip_start'];
 	$ip_end = $_POST['ip_end'];
 	$failover_peer = $_POST['failover_peer'];
+	$opt_242 = $_POST['opt_242'];
 
-	if (isset($sub_interface, $subnet, $netmask, $gw, $broadcast, $ip_start, $ip_end, $failover_peer)) {
+	if (isset($sub_interface, $subnet, $netmask, $gw, $broadcast, $ip_start, $ip_end, $failover_peer, $opt_242)) {
 		
-		$sql_ins_subnet = "INSERT INTO net_ipv4 (interface, subnet_ipv4, netmask, default_gw, broadcast, ip_range_start, ip_range_end, failover_peer) VALUES ('enp4s0f0\.$sub_interface', INET_ATON('$subnet'), INET_ATON('$netmask'), INET_ATON('$gw'), INET_ATON('$broadcast'), INET_ATON('$ip_start'), INET_ATON('$ip_end'), '$failover_peer')";
+		$sql_ins_subnet = "INSERT INTO net_ipv4 (interface, subnet_ipv4, netmask, default_gw, broadcast, ip_range_start, ip_range_end, failover_peer, opt_242) VALUES ('enp4s0f0\.$sub_interface', INET_ATON('$subnet'), INET_ATON('$netmask'), INET_ATON('$gw'), INET_ATON('$broadcast'), INET_ATON('$ip_start'), INET_ATON('$ip_end'), '$failover_peer', '$opt_242')";
 
 		$res = $conn->exec($sql_ins_subnet);
 
