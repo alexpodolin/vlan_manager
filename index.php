@@ -121,14 +121,29 @@ foreach ($file_name as $item) {
 					</div>
 
 					<div class="form-group">
-						<label for="failover_peer">failover peer:</label>
+						<label for="dns_suffix">Доменное имя (dns суффикс)</label>
+						<input class="form-control" type="text" id="dns_suffix" name="dns_suffix"  required size="30" value="nr.local">
+					</div>
+
+					<div class="form-group">
+                                                <label for="dns_srv_01">Dns сервер основной</label>
+                                                <input class="form-control" type="text" id="dns_srv_01" name="dns_srv_01"  required size="15" value="192.168.156.93">
+                                        </div>
+
+					<div class="form-group">
+                                                <label for="dns_srv_02">Dns сервер резервный</label>
+                                                <input class="form-control" type="text" id="dns_srv_02" name="dns_srv_02"  required size="15" value="192.168.156.94">
+                                        </div>
+					
+					<div class="form-group">
+						<label for="failover_peer">Failover peer:</label>
 						<input class="form-control" type="text" id="failover_peer" name="failover_peer"  required size="30" value="nr-dhcpd-failover">
 					</div>
 
 					<div class="form-group">
-						<label for="opt_242">опция 242:</label>
+						<label for="opt_242">Опция 242:</label>
 						<small>* укажите параметр L2QVLAN</small>
-						<input class="form-control" type="text" id="opt_242" name="opt_242"  required size="150" value=" MCIPADD=10.16.233.30,MCPORT=1719,TLSSRVR=10.16.233.23,HTTPSRVR=10.16.233.23,L2Q=1,L2QVLAN=XXX,VLANTEST=0">
+						<input class="form-control" type="text" id="opt_242" name="opt_242"  required size="150" value="MCIPADD=10.16.233.30,MCPORT=1719,TLSSRVR=10.16.233.23,HTTPSRVR=10.16.233.23,L2Q=1,L2QVLAN=XXX,VLANTEST=0">
 					</div>
 
 					<div class="form-group">
@@ -172,6 +187,9 @@ foreach ($file_name as $item) {
 						<th>Broadcast</th>
 						<th>Start ip</th>
 						<th>End ip</th>
+						<th>Dns suffix</th>
+                                                <th>Dns primary</th>
+                                                <th>Dns secondary</th>
 						<th>Failover peer</th>
 						<th>Option 242</th>
 						<th>Actions</th>
